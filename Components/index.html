@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Musafir</title>
 </head>
 <body>
-    <h1>Hello world !! this is HK!! This part is from new branch</h1>
+    <div>
+        Source Station: <br>
+        <input type="text" name="source" id="source"><br>
+        Destination Station: <br>
+        <input type="text" name="destination" id="destination"><br>
+        Date of Journey : <br>
+        <input type="date" name="date" id="date"><br>
+        <button onclick="searchTrains()" >Search</button>
+    </div>
+
+    <div>
+        <ul id="result">
+
+        </ul>
+    </div>
+
+    <script src="../Controllers/index.js"></script>
 </body>
 </html>
