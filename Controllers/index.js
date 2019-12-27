@@ -1,5 +1,6 @@
 
 console.log("Index.js is executing")
+const apikey = '3ie5v60012'
 
 function searchTrains()
 {
@@ -55,13 +56,13 @@ function searchTrains()
         }
     });
 
-    xhr.open('GET', 'https://api.railwayapi.com/v2/between/source/' + source + '/dest/' + destination + '/date/' + date + '/apikey/6r23xmv7dw/')
+    xhr.open('GET', `https://api.railwayapi.com/v2/between/source/${source}/dest/${destination}/date/${date}/apikey/${apikey}/`)
     xhr.send(null)
 
     return true;
 }
 
-module.exports = function pnrStatus()
+function pnrStatus()
 {
     var data = null;
 
@@ -84,4 +85,38 @@ module.exports = function pnrStatus()
 function track()
 {
 
+}
+
+function suggestStations(id)
+{
+    var result = document.getElementById('result')
+
+    console.log("Suggestions called")
+    var partial = document.getElementById(id).value
+    var data = null;
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function (event) {
+        if (this.readyState === 4) {
+            var responseObj = JSON.parse(this.responseText)
+
+            result.innerHTML = ""
+
+            console.log(responseObj)
+
+
+              responseObj.stations.forEach(element => {
+                 var li = document.createElement('li')
+                 li.innerHTML = element.name;
+                 result.appendChild(li)
+                 })
+        }
+    });
+
+    xhr.open("GET", `https://api.railwayapi.com/v2/suggest-station/name/${partial}/apikey/${apikey}/`);
+    xhr.send(data);
+
+    return true
 }

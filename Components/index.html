@@ -14,9 +14,9 @@
         <div>
             <h2>Search Trains</h2>
             Source Station: <br>
-            <input type="text" name="source" id="source"><br>
+            <input type="text" name="source" id="source" oninput="suggestStations('source')"><br>
             Destination Station: <br>
-            <input type="text" name="destination" id="destination"><br>
+            <input type="text" name="destination" id="destination" oninput="suggestStations('destination')"><br>
             Date of Journey : <br>
             <input type="date" name="date" id="date"><br>
             <button onclick="searchTrains()" >Search</button>
