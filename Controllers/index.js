@@ -1,6 +1,6 @@
 
 console.log("Index.js is executing")
-const apikey = '3ie5v60012'
+const apikey = '7to92apk5h'
 
 function searchTrains()
 {
@@ -120,3 +120,5 @@ function suggestStations(id)
 
     return true
 }
+
+// function for Autopopulate using select2 in jquery
