@@ -8,6 +8,7 @@ const URL = '127.0.0.1'
 
 //app.use(body.json())
 app.set('view engine', 'ejs')
+app.use(express.static('public'));
 
 const uri = "mongodb+srv://hare123:hare123@myfirstcluster-ixxfb.mongodb.net/test?retryWrites=true&w=majority"
 
