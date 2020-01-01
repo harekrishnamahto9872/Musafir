@@ -1,6 +1,6 @@
 
 console.log("Index.js is executing")
-const apikey = '7to92apk5h'
+const apikey = '3f2bu8i1nd'
 
 function searchTrains()
 {
@@ -15,11 +15,14 @@ function searchTrains()
     console.log(source + " " + destination + " " + date)
     console.log("fetch called")
     var xhr = new XMLHttpRequest()
+    xhr.withCredentials = false;
+    
 
     xhr.addEventListener("readystatechange", function(event){
         if(this.readyState == 4)
         {
             result.innerHTML = ""
+            console.log(this.responseText)
             var responseObj = JSON.parse(this.responseText)
 
             responseObj.trains.forEach(element => {
@@ -56,9 +59,8 @@ function searchTrains()
         }
     });
 
-    xhr.open('GET', `https://api.railwayapi.com/v2/between/source/${source}/dest/${destination}/date/${date}/apikey/${apikey}/`)
+    xhr.open('GET', `https://api.railwayapi.com/v2/between/source/${source}/dest/${destination}/date/${date}/apikey/${apikey}/`,true)
     xhr.send(null)
-
     return true;
 }
 
