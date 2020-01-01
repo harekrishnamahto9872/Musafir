@@ -21,6 +21,10 @@ module.exports = function(app,db){
         res.render('signup',data={message:null})
     })
 
+    app.get('/posts',function(req,res){
+        res.render('allPosts')
+    })
+
     app.post('/login',urlencodedParser,function(req,res){
         //res.render('todo',{todos:data})
         console.log("post for login called")
