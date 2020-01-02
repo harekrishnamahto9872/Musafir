@@ -21,6 +21,9 @@
             <h2>Search Trains</h2>
             Source Station: <br>
             <input type="text" name="source" id="source" oninput="suggestStations('source')"><br>
+            <ul name="" id="result" style="height:150px; width:80%; overflow:hidden; overflow-y:scroll; display: none;">
+
+            </ul>
             Destination Station: <br>
             <input type="text" name="destination" id="destination" oninput="suggestStations('destination')"><br>
             Date of Journey : <br>
@@ -48,7 +51,7 @@
     </div>
 
     <div>
-        <ul id="result">
+        <ul >
 
         </ul>
     </div>

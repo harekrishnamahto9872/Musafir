@@ -5,6 +5,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 module.exports = function(app,db){
 
     const collection = db.collection('loginDetails')
+    const postsCollection = db.collection('postsDetails')
 
     app.get('/',function(req,res){
         console.log("home page requested ")
@@ -22,6 +23,7 @@ module.exports = function(app,db){
     })
 
     app.get('/posts',function(req,res){
+        console.log("reqr",req)
         res.render('allPosts')
     })
 
@@ -38,7 +40,7 @@ module.exports = function(app,db){
             {
                 if(user.password === password){
                     console.log("user found with details ",user)
-                    res.render('logged',data={name: user.name})
+                    res.render('logged',data={name: user.name, email : user.email})
                 }
                 else{
                     console.log("please enter correct password")
@@ -73,12 +75,20 @@ module.exports = function(app,db){
         collection.insertOne(newUser)
         .then(user => {
             console.log("User saved successfully ", user.insertedId)
-            res.render('logged',data={name: name})
+            res.render('logged',data={name: name, email: user.email})
         })
         .catch(err =>{
             console.error("failed to insert user ", err)
             res.render('failure')
         })
     })
+
+    // app.post('/posts',urlencodedParser, function(req,res){
+    //     const request = req.body
+    //     const title = request.title
+    //     const content = request.content
+    //     const postId
+
+    // })
 
 }

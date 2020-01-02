@@ -1,6 +1,6 @@
 
 console.log("Index.js is executing")
-const apikey = '3f2bu8i1nd'
+const apikey = '7to92apk5h'
 
 function searchTrains()
 {
@@ -110,8 +110,10 @@ function suggestStations(id)
 
 
               responseObj.stations.forEach(element => {
+                 var button = document.createElement('button')
+                 button.innerHTML = element.name;
                  var li = document.createElement('li')
-                 li.innerHTML = element.name;
+                 li.appendChild(button)
                  result.appendChild(li)
                  })
         }
