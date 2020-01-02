@@ -8,9 +8,10 @@
 </head>
 <body>
     <div>
+        <h1>Welcome!! <%= data.email %></h1>
         <div>
-            <form action="">
-                <input type="email" value="<%= data.email %>" style="visibility:visible">
+            <form action="" method="POST">
+                <input type="email" name="email" value="<%= data.email %>" style="display:none">
                 <label for="title">Title</label><br>
                 <input type="text" name="title"><br>
                 <label for="content">Share your Travel Experience</label><br>

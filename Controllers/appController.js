@@ -21,11 +21,62 @@ module.exports = function(app,db){
         console.log("signup called for get")
         res.render('signup',data={message:null})
     })
-
-    app.get('/posts',function(req,res){
-        console.log("reqr",req)
-        res.render('allPosts')
+    
+    app.get('/posts/:email', function(req,res){
+        console.log("query param",req.params.email)
+        res.render('allPosts',data={email: req.params.email})
     })
+
+    app.post('/posts/:email',urlencodedParser,function(req,res){
+        console.log("create post called with email : ",req.params.email)
+        const request = req.body
+        const email = request.email
+        const title = request.title
+        const content = request.content
+
+        const postObj = {
+            email : email,
+            title : title,
+            content : content 
+        }
+
+        const postId = postsCollection.insertOne(postObj)
+        .then(result =>{
+            console.log("post created with id ", result.insertedId)
+            
+            
+            // Finding a user with this email
+            collection.findOne({"email": email})
+            .then(user =>{
+                 console.log("Previous array", user.posts)
+                
+                 var postsList = user.posts
+                 
+                // Adding the created post id to posts of user
+                postsList = [...postsList,result.insertedId]
+
+                //Updating the user's postslist with the added postId
+                collection.updateOne(
+                    {"email": email},
+                    {$set: {"posts":postsList}})
+                    .then( response =>{
+                        console.log("User's postsList updated ")
+                })
+                
+            })
+            
+        })
+        
+        res.send({
+            status: 200,
+            response: "post created",
+        })
+    })
+
+    // app.get('/posts',function(req,res){
+    //     console.log("reqr",req)
+    //     res.render('allPosts')
+    // })
 
     app.post('/login',urlencodedParser,function(req,res){
         //res.render('todo',{todos:data})
@@ -65,11 +116,13 @@ module.exports = function(app,db){
         const name = request.name
         const email = request.email
         const password = request.password
+        const posts = []
 
         const newUser = {
             "name" : name,
             "email" : email,
-            "password": password
+            "password": password,
+            "posts" : posts
         }
 
         collection.insertOne(newUser)
