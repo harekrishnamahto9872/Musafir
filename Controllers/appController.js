@@ -24,7 +24,25 @@ module.exports = function(app,db){
     
     app.get('/posts/:email', function(req,res){
         console.log("query param",req.params.email)
-        res.render('allPosts',data={email: req.params.email})
+        postsCollection.find({}).toArray()
+        .then(result => {
+            console.log("posts result ",result)
+            res.render('allPosts',data={email: req.params.email,posts: result})
+        })
+        .catch(err =>{
+            res.send("Error fetching posts")
+        })
+    })
+
+    app.get('/posts/myposts/:email',function(req,res){
+        postsCollection.find({email:req.params.email}).toArray()
+        .then(result => {
+            console.log("posts result ",result)
+            res.render('allPosts',data={email: req.params.email,posts: result})
+        })
+        .catch(err =>{
+            res.send("Error fetching posts")
+        })
     })
 
     app.post('/posts/:email',urlencodedParser,function(req,res){
@@ -34,43 +52,57 @@ module.exports = function(app,db){
         const title = request.title
         const content = request.content
 
-        const postObj = {
-            email : email,
-            title : title,
-            content : content 
-        }
+        collection.findOne({"email": email})
+        .then(user =>{
 
-        const postId = postsCollection.insertOne(postObj)
-        .then(result =>{
-            console.log("post created with id ", result.insertedId)
-            
-            
-            // Finding a user with this email
-            collection.findOne({"email": email})
-            .then(user =>{
-                 console.log("Previous array", user.posts)
+            const postObj = {
+                email : email,
+                title : title,
+                content : content, 
+                user : user.name
+            }
+    
+            const postId = postsCollection.insertOne(postObj)
+            .then(result =>{
+                console.log("post created with id ", result.insertedId)
                 
-                 var postsList = user.posts
-                 
-                // Adding the created post id to posts of user
-                postsList = [...postsList,result.insertedId]
-
-                //Updating the user's postslist with the added postId
-                collection.updateOne(
-                    {"email": email},
-                    {$set: {"posts":postsList}})
-                    .then( response =>{
-                        console.log("User's postsList updated ")
+                
+                // Finding a user with this email
+                collection.findOne({"email": email})
+                .then(user =>{
+                     console.log("Previous array", user.posts)
+                    
+                     var postsList = user.posts
+                     
+                    // Adding the created post id to posts of user
+                    postsList = [...postsList,result.insertedId]
+    
+                    //Updating the user's postslist with the added postId
+                    collection.updateOne(
+                        {"email": email},
+                        {$set: {"posts":postsList}})
+                        .then( response =>{
+                            console.log("User's postsList updated ")
+                    })
+                    
                 })
                 
             })
-            
+
+        })
+        .then(postRes =>{
+            postsCollection.find({}).toArray()
+            .then(result => {
+                console.log("posts result ",result)
+                res.render('allPosts',data={email: req.params.email,posts: result})
+            })
+            .catch(err =>{
+                res.send("Error fetching posts")
+            })
         })
         
-        res.send({
-            status: 200,
-            response: "post created",
-        })
+        
+        
     })
 
     // app.get('/posts',function(req,res){

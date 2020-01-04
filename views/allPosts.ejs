@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <h1>Welcome!! <%= data.email %></h1>
+        <h1>Welcome!! <%= data.email %><a style="margin-left: 250px;" href='/posts/myposts/<%= data.email %>'>My Posts</a> <a style="margin-left: 50px;" href='/posts/<%= data.email %>'>All Posts</a> <a style="margin-left: 50px;" href='/'>Logout</a>  </h1>
         <div>
             <form action="" method="POST">
                 <input type="email" name="email" value="<%= data.email %>" style="display:none">
@@ -19,9 +19,17 @@
                 <input type="submit" value="Post">
             </form>
         </div>
-        <div>
+        <div id="postResult">
+            <% for(var i=0;i< data.posts.length; i++){ %>
+                <div style="border: 2px solid black; margin:20px">
+                    <h2><%= data.posts[i].title %> </h2>
+                    <p><%= data.posts[i].content %></p>
+                    <h3><%= data.posts[i].user %></h3>
+                </div>
 
+            <% } %> 
         </div>
+
     </div>
 </body>
 </html>
