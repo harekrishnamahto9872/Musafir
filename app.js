@@ -3,9 +3,9 @@ const mongodb = require('mongodb')
 const appController = require('./Controllers/appController')
 
 const app = express()
-const PORT = 3000
-const URL = '127.0.0.1'
-
+//const PORT = 3000
+//const URL = '127.0.0.1'
+const port = process.env.PORT || 3000;
 //app.use(body.json())
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
@@ -24,8 +24,8 @@ mongodb.MongoClient.connect(uri,(err,dbClient) =>{
         appController(app,database)
     }
 
-    app.listen(PORT,URL,function(){
-        console.log(`Server is running on ${PORT} at ${URL}`)
+    app.listen(port,()=>{
+        console.log(`Listening to server at ${port}`);
     })
     
 })
