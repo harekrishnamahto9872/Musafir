@@ -128,6 +128,10 @@ function track()
 
 }
 
+var today = new Date().toISOString().split('T')[0];
+document.getElementById("date").setAttribute('min', today);
+document.getElementById("date_live").setAttribute('min', today);
+
 function suggestStations(id)
 {
     // var result = document.getElementById('result')

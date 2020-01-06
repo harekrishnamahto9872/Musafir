@@ -307,17 +307,17 @@ input.btnContact {
         <div class="container">
             <div id="postResult">
                     <% for(var i=0;i< data.posts.length; i++){ %>
-                    <div class="card mt-2">
+                    <div class="card mt-2" style="background-color:#52de97;">
                             <div class="card-body">
                                 <div class="row">
                                         <div class="col-md-2">
                                                 
-                                                <p class="text-secondary text-center"><%= data.posts[i].user %></p>
+                                                <h5 class=" text-center" style="color: #dc3545;"><%= data.posts[i].user %></h5>
                                             </div>
                                   
                                     <div class="col-md-10">
                                         <p>
-                                            <a class="float-left" href="#"><strong><%= data.posts[i].title %></strong></a>
+                                            <a class="float-left" href="#"><h2><strong><%= data.posts[i].title %></strong></a></h2>
                                           
                     
                                        </p>
@@ -368,7 +368,7 @@ input.btnContact {
             <div class="container">
               <div class="row row-30">
                 <div class="col-md-4 col-xl-5">
-                  <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+                  <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="img/02.jpeg" alt="brand" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
                     <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
                     <!-- Rights-->
                     <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
