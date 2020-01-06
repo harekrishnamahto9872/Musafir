@@ -145,7 +145,7 @@ module.exports = function(app,db){
         console.log('post called for signup')
 
         var request = req.body
-        const name = request.name
+        const name = request.username
         const email = request.email
         const password = request.password
         const posts = []

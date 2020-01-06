@@ -1,10 +1,10 @@
 
 console.log("Index.js is executing")
-const apikey = '7to92apk5h'
+const apikey = '9w2fwsrpru'
 
 function searchTrains()
 {
-    var result = document.getElementById('result')
+    var result = document.getElementById('resultArea')
     result.innerHTML = "please wait!!! Searching........... "
 
     var source = document.getElementById('source').value
@@ -66,6 +66,8 @@ function searchTrains()
 
 function pnrStatus()
 {
+    document.getElementById('resultArea').innerHTML = "please wait!! Searching...."
+    console.log("pnr called")
     var data = null;
 
     var xhr = new XMLHttpRequest();
@@ -73,7 +75,14 @@ function pnrStatus()
 
     xhr.addEventListener("readystatechange", function (event) {
         if (this.readyState === 4) {
-            console.log(this.responseText);
+            console.log(this.responseText)
+            var responseObj = JSON.parse(this.responseText)
+            document.getElementById('resultArea').innerHTML = ""
+            var li = document.createElement('li')
+            li.innerHTML = responseObj.error
+
+            document.getElementById('resultArea').appendChild(li)
+            alert(responseObj.error)
         }
     });
 
@@ -86,43 +95,73 @@ function pnrStatus()
 
 function track()
 {
+    const trainNo = document.getElementById('trainno').value
+    const date_live = document.getElementById('date_live').value
+    const stn_code = document.getElementById('code_live').value
 
-}
-
-function suggestStations(id)
-{
-    var result = document.getElementById('result')
-
-    console.log("Suggestions called")
-    var partial = document.getElementById(id).value
-    var data = null;
+    document.getElementById('resultArea').innerHTML = "Please Wait!! Searching....."
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
 
     xhr.addEventListener("readystatechange", function (event) {
         if (this.readyState === 4) {
+            console.log(this.responseText)
             var responseObj = JSON.parse(this.responseText)
+            document.getElementById('resultArea').innerHTML = ""
+            var li = document.createElement('li')
+            var li2 = document.createElement('li')
+            li.innerHTML = responseObj.train.name
+            li2.innerHTML = responseObj.position
 
-            result.innerHTML = ""
-
-            console.log(responseObj)
-
-
-              responseObj.stations.forEach(element => {
-                 var button = document.createElement('button')
-                 button.innerHTML = element.name;
-                 var li = document.createElement('li')
-                 li.appendChild(button)
-                 result.appendChild(li)
-                 })
+            document.getElementById('resultArea').appendChild(li)
+            document.getElementById('resultArea').appendChild(li2)
+            alert(responseObj.position)
+              
         }
     });
 
-    xhr.open("GET", `https://api.railwayapi.com/v2/suggest-station/name/${partial}/apikey/${apikey}/`);
-    xhr.send(data);
+    xhr.open("GET", `https://api.railwayapi.com/v2/live/train/${trainNo}/station/${stn_code}/date/${date_live}/apikey/${apikey}/`);
+    xhr.send(null);
 
     return true
+
+}
+
+function suggestStations(id)
+{
+    // var result = document.getElementById('result')
+
+    // console.log("Suggestions called")
+    // var partial = document.getElementById(id).value
+    // var data = null;
+
+    // var xhr = new XMLHttpRequest();
+    // xhr.withCredentials = false;
+
+    // xhr.addEventListener("readystatechange", function (event) {
+    //     if (this.readyState === 4) {
+    //         var responseObj = JSON.parse(this.responseText)
+
+    //         result.innerHTML = ""
+
+    //         console.log(responseObj)
+
+
+    //           responseObj.stations.forEach(element => {
+    //              var button = document.createElement('button')
+    //              button.innerHTML = element.name;
+    //              var li = document.createElement('li')
+    //              li.appendChild(button)
+    //              result.appendChild(li)
+    //              })
+    //     }
+    // });
+
+    // xhr.open("GET", `https://api.railwayapi.com/v2/suggest-station/name/${partial}/apikey/${apikey}/`);
+    // xhr.send(data);
+
+    // return true
 }
 
 // function for Autopopulate using select2 in jquery
