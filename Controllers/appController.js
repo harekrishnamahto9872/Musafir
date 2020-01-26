@@ -105,6 +105,66 @@ module.exports = function(app,db){
         
     })
 
+    app.post('/posts/myposts/:email',urlencodedParser,function(req,res){
+        console.log("create post called with email : ",req.params.email)
+        const request = req.body
+        const email = request.email
+        const title = request.title
+        const content = request.content
+
+        collection.findOne({"email": email})
+        .then(user =>{
+
+            const postObj = {
+                email : email,
+                title : title,
+                content : content, 
+                user : user.name
+            }
+    
+            const postId = postsCollection.insertOne(postObj)
+            .then(result =>{
+                console.log("post created with id ", result.insertedId)
+                
+                
+                // Finding a user with this email
+                collection.findOne({"email": email})
+                .then(user =>{
+                     console.log("Previous array", user.posts)
+                    
+                     var postsList = user.posts
+                     
+                    // Adding the created post id to posts of user
+                    postsList = [...postsList,result.insertedId]
+    
+                    //Updating the user's postslist with the added postId
+                    collection.updateOne(
+                        {"email": email},
+                        {$set: {"posts":postsList}})
+                        .then( response =>{
+                            console.log("User's postsList updated ")
+                    })
+                    
+                })
+                
+            })
+
+        })
+        .then(postRes =>{
+            postsCollection.find({}).toArray()
+            .then(result => {
+                console.log("posts result ",result)
+                res.render('allPosts',data={email: req.params.email,posts: result})
+            })
+            .catch(err =>{
+                res.send("Error fetching posts")
+            })
+        })
+        
+        
+        
+    })
+
     // app.get('/posts',function(req,res){
     //     console.log("reqr",req)
     //     res.render('allPosts')
