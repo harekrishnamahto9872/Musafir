@@ -160,7 +160,7 @@ module.exports = function(app,db){
         collection.insertOne(newUser)
         .then(user => {
             console.log("User saved successfully ", user.insertedId)
-            res.render('logged',data={name: name, email: user.email})
+            res.render('logged',data={name: name, email: email})
         })
         .catch(err =>{
             console.error("failed to insert user ", err)

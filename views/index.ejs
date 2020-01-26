@@ -8,374 +8,525 @@
     <link rel="icon" href="/img/02.jpeg" type="image/gif" sizes="16x16">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Rail Safar</title>
     <style>
-        body{
-        font-family: 'Montserrat',sans-serif;
-      }
-      h4{
-	color: grey;
-}
-.demo{
-	text-align: center;
-}
-a.effect-underline:after {
-	content: '';
-  position: absolute;
-  left: 0;
-  display: inline-block;
-  height: 0em;
-  width: 96%;
-  border-bottom: 1px solid;
-  margin-top: 0px;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition:opacity 0.35s, -webkit-transform 0.35s;
-	transition:opacity 0.35s, transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
-	-webkit-transform: scale(0,1);
-    transform: scale(0,1);
-    
-}
-
-a.effect-underline:hover:after {
-  opacity: 1;
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
-
-.collapse navbar-collapse .nav-item
-{
-    padding: 15em;
-}
-
-.context-dark, .bg-gray-dark, .bg-primary {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
-    color: #ffffff;
-}
-.nav-list li {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.nav-list li a:hover:before {
-    margin-left: 0;
-    opacity: 1;
-    visibility: visible;
-}
-
-ul, ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.social-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 23px;
-    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-}
-.social-container .col {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.nav-list li a:before {
-    content: "\f14f";
-    font: 400 21px/1 "Material Design Icons";
-    color: #4d6de6;
-    display: inline-block;
-    vertical-align: baseline;
-    margin-left: -28px;
-    margin-right: 7px;
-    opacity: 0;
-    visibility: hidden;
-    transition: .22s ease;
-}
-
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
-    background: #2d3246!important;
-}
-img.d-block.w-100 {
-    height: 70vh;
-}
-
-.login-card-purple {
-    background: linear-gradient(145deg, #673AB7, #9C27B0);
-}
-
-.login-card-yellow {
-    background: linear-gradient(145deg, #FFC107, #FFEB3B);
-}
-
-.login-card-light {
-    background: linear-gradient(145deg, #eee, #fff);
-}
-
-.login-dark {
-    background: linear-gradient(145deg, #575b5d, #252b2d);
-}
-
-.login-blue {
-    background: linear-gradient(145deg, #2196F3, #3F51B5);
-}
-
-.login-purple-pink {
-    background: linear-gradient(145deg, #3F51B5, #E91E63);
-}
-
-body {
-    font-size: 13px;
-}
-.pt-3 {
-    height: 88px;
-}
-      </style>
+        .header-title {
+            text-align: center!important;
+        }
+        
+        #tip {
+            display: none;
+        }
+        
+        .fadeIn {
+            animation-duration: 3s;
+        }
+        
+        .form-control {
+            border-radius: 0px;
+            border: 1px solid #EDEDED;
+        }
+        
+        .form-control:focus {
+            border: 1px solid #00bfff;
+        }
+        
+        .textarea-contact {
+            resize: none;
+        }
+        
+        .btn-send {
+            border-radius: 0px;
+            border: 1px solid #00bfff;
+            background: #00bfff;
+            color: #fff;
+        }
+        
+        .btn-send:hover {
+            border: 1px solid #00bfff;
+            background: #fff;
+            color: #00bfff;
+            transition: background 0.5s;
+        }
+        
+        .second-portion {
+            margin-top: 50px;
+        }
+        
+        @import "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css";
+        @import "http://fonts.googleapis.com/css?family=Roboto:400,500";
+        .box>.icon {
+            text-align: center;
+            position: relative;
+        }
+        
+        .box>.icon>.image {
+            position: relative;
+            z-index: 2;
+            margin: auto;
+            width: 88px;
+            height: 88px;
+            border: 8px solid white;
+            line-height: 88px;
+            border-radius: 50%;
+            background: #00bfff;
+            vertical-align: middle;
+        }
+        
+        .box>.icon:hover>.image {
+            background: #333;
+        }
+        
+        .box>.icon>.image>i {
+            font-size: 36px !important;
+            color: #fff !important;
+        }
+        
+        .box>.icon:hover>.image>i {
+            color: white !important;
+        }
+        
+        .box>.icon>.info {
+            margin-top: -24px;
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid #e0e0e0;
+            padding: 15px 0 10px 0;
+            min-height: 163px;
+        }
+        
+        .box>.icon:hover>.info {
+            background: rgba(0, 0, 0, 0.04);
+            border-color: #e0e0e0;
+            color: white;
+        }
+        
+        .box>.icon>.info>h3.title {
+            font-family: "Robot", sans-serif !important;
+            font-size: 16px;
+            color: #222;
+            font-weight: 700;
+        }
+        
+        .box>.icon>.info>p {
+            font-family: "Robot", sans-serif !important;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5em;
+            margin: 20px;
+        }
+        
+        .box>.icon:hover>.info>h3.title,
+        .box>.icon:hover>.info>p,
+        .box>.icon:hover>.info>.more>a {
+            color: #222;
+        }
+        
+        .box>.icon>.info>.more a {
+            font-family: "Robot", sans-serif !important;
+            font-size: 12px;
+            color: #222;
+            line-height: 12px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        
+        .box>.icon:hover>.info>.more>a {
+            color: #fff;
+            padding: 6px 8px;
+            background-color: #63B76C;
+        }
+        
+        .box .space {
+            height: 30px;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .contact-form {
+                margin-top: 25px;
+            }
+            .btn-send {
+                width: 100%;
+                padding: 10px;
+            }
+            .second-portion {
+                margin-top: 25px;
+            }
+        }
+        
+        .social-link {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border-radius: 50%;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .social-link:hover,
+        .social-link:focus {
+            background: #ddd;
+            text-decoration: none;
+            color: #555;
+        }
+        
+        .carousel-item {
+            height: 65vh;
+            min-height: 350px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover
+        }
+        
+        #mainNavbar {
+            padding-left: 50px;
+            padding-top: 20px;
+            background: rgb(34, 31, 31);
+        }
+        
+        .navbar-dark .navbar-brand {
+            font-family: 'Source Serif Pro', serif
+        }
+        
+        .navbar-nav .nav-link {
+            font-family: 'Source Serif Pro', serif
+        }
+        
+        .display-4 {
+            font-family: 'Source Serif Pro', serif
+        }
+        
+        .lead {
+            font-family: 'Source Serif Pro', serif
+        }
+        
+        .navbar.scrolled {
+            background: rgb(34, 31, 31);
+            transition: background 500ms
+        }
+        
+        .font-weight-light {
+            font-family: 'Source Serif Pro', serif
+        }
+    </style>
 </head>
 
 <body>
 
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <div class="container">
-            <div class="navbar-header">
-                    <div class="contact-image" style="width: 70%;">
-                            <img src="/img/02.jpeg" alt="rocket_contact" style="height:10%;width: 15%; border-radius:50%;"/>
-                        </div>
-                <!-- <a class="navbar-brand" style="cursor:pointer" href="#">Welcome TO MUSAFIR</a> -->
-                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- <ul class="navbar-nav">
-                    
-                    <div class="col-lg-12 col-sm-12 ">
-                        <form class="navbar-form" role="search">
-                            <div class="input-group" style=" width: 100%;">
-                                <input type="text" class="form-control" placeholder="Search" name="q">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </ul> -->
-                <ul class="nav navbar-nav navbar-right" style="position: absolute;right: 0;padding:25px;">
-                    <li ><a class="nav-link" href="#"
-                            style="cursor:pointer">
-                            Dashboard
-                            <i class="fa fa-user-plus" aria-hidden="true"></i></a>
-                    </li>
-                    <!-- <li ><a class="nav-link" href="#"
-                            style="cursor:pointer">
-                            Profile
-                            <i class="fa fa-user-plus" aria-hidden="true"></i></a>
-                    </li> -->
-
-                    <li><a class="nav-link"
-                            href="/signup" style="cursor:pointer">
-                            Signup
-                            <i class="fa fa-user-plus" aria-hidden="true"></i></a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link" href="/login">
-                            Signin
-                            <i class="fa fa-sign-in" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <!-- <li >
-                        <a class="nav-link" href="#" style="cursor:pointer">
-                            Logout
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        </a>
-                    </li> -->
-
+    <div>
+        <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 fixed-top"> <a href="#" class="navbar-brand">Trainsafar</a> <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navLinks">
+                <ul class="navbar-nav">
+                    <li class="nav-item"> <a href="/" class="navbar-brand">Dashboard</a> </li>
+                    <li class="nav-item"> <a href="/login" class="navbar-brand">Login</a> </li>
+                    <li class="nav-item"> <a href="/signup" class="navbar-brand">SignUp</a> </li>
 
                 </ul>
-            </div>
-        </div>
-    </nav>
-    <section>
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://pbs.twimg.com/media/EGHYvttU4AAYKb7?format=jpg&name=large" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://pbs.twimg.com/media/EGHYvtkUcAAuc8T?format=jpg&name=large" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://pbs.twimg.com/media/EGHYvtjU0AAO8w1?format=jpg&name=large" class="d-block w-100" alt="...">
-                    </div>
-                    <!--https://upload.wikimedia.org/wikipedia/commons/8/8d/Yarra_Night_Panorama%2C_Melbourne_-_Feb_2005.jpg-->
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </section>
 
-        <h2 style="text-align: center; background-color: #eee; margin: 10px;">Login to use the services we offer</h2>
-        <div class="container">
-            <div class="row m-4">
-                <div class="col-4">
-                    <div class="login-card-purple p-3 shadow-lg rounded">
-                        <div class="pt-3">
-                            <h2 class="text-white ">Search Trains</h2>
+            </div>
+        </nav>
+        <header>
+            <div id="indicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#indicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#indicators" data-slide-to="1"></li>
+                    <li data-target="#indicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="carousel-item active" style="background-image : url('https://images.pexels.com/photos/1483024/pexels-photo-1483024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+                        <div class="carousel-caption d-md-block">
+                            <h3 class="display-4">Trainsafar</h3>
+                            <p class="lead">Your Travel Buddy</p>
                         </div>
-        
-                        
                     </div>
-                </div>
-        
-                <div class="col-4">
-                    <div class="login-card-light p-3 shadow-lg rounded">
-                        <div class="pt-3">
-                            <h2 class="text-danger">Check Live Train Status</h2>
+                    <div class="carousel-item " style="background-image : url('https://images.pexels.com/photos/672358/pexels-photo-672358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+                        <div class="carousel-caption d-md-block">
+                            <h3 class="display-4">Trainsafar</h3>
+                            <p class="lead">Your Travel Buddy</p>
                         </div>
-        
-                        
                     </div>
-                </div>
-        
-                <div class="col-4">
-                    <div class="login-dark p-3 shadow-lg rounded">
-                        <div class="pt-3">
-                            <h2 class="text-white ">Check PNR status</h2>
+
+                    <div class="carousel-item" style="background-image : url('https://images.pexels.com/photos/512890/pexels-photo-512890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+                        <div class="carousel-caption d-md-block">
+                            <h3 class="display-4">Trainsafar</h3>
+                            <p class="lead">Your Travel Buddy</p>
                         </div>
-        
-                        
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#indicators" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                <a class="carousel-control-next" href="#indicators" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+            </div>
+        </header>
+    </div>
+
+    <div>
+        <div class="bg-light">
+            <div class="container py-5">
+                <div class="row h-100 align-items-center py-5">
+                    <div class="col-lg-6">
+                        <h1 class="display-4">Search Train Quickly</h1>
+                        <p class="lead text-muted mb-0">Now Search you trains online faster with trainsafar</p>
+                        <p class="lead text-muted">
+                            <a href="/login" class="btn btn-light px-5 rounded-pill shadow-sm">Search Now</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-6  d-lg-block"><img src="http://spysr.in/img/boy-img/train-booking.png" alt="" class="img-fluid" style="border-radius: 1.5em;" /></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white py-5">
+            <div class="container py-5">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+                        <h2 class="font-weight-light">Check PNR Status</h2>
+                        <p class="font-italic text-muted mb-4">Find PNR status in seconds on our website.</p><a href="/login" class="btn btn-light px-5 rounded-pill shadow-sm">Check Now</a>
+                    </div>
+                    <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img style="border-radius: 1.5em;" src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2016/11/22/521940-485443-459173-irctc1.jpg" alt="" class="img-fluid mb-4 mb-lg-0" /></div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-5 px-5 mx-auto"><img style="border-radius: 1.5em;" src="https://images.freekaamaal.com/post_images/1528438440.PNG" alt="" class="img-fluid mb-4 mb-lg-0" /></div>
+                    <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+                        <h2 class="font-weight-light">Get List of Cancelled Trains</h2>
+                        <p class="font-italic text-muted mb-4">Worried about your train being rescheduled or cancelled? Trainsafar can help you know your train status</p><a href="/login" class="btn btn-light px-5 rounded-pill shadow-sm">Check Now</a>
                     </div>
                 </div>
             </div>
-        
-
         </div>
 
+        <div class="bg-light py-5">
+            <div class="container py-5">
+                <div class="row mb-4">
+                    <div class="col-lg-5">
+                        <h2 class="display-4 font-weight-light">Happy Customers</h2>
+                        <p class="font-italic text-muted">"Delivering Best In Class Services" Is Our Core Principle</p>
+                    </div>
+                </div>
 
-<!-- 
-    <h1 style="text-align: center;">Welcome to MUSAFIR </h1> -->
-    <!-- <div>
-        <div>
-            <h2><a href="/login">Login</a> Or
-                <a href="/signup">SignUp</a></h2>
-        </div>
-    </div> -->
-    <!-- <div style="display: inline-flex;"> -->
-        <!-- <div>
-            <h2>Search Trains</h2>
-            Source Station: <br>
-            <input type="text" name="source" id="source" oninput="suggestStations('source')"><br>
-            <ul name="" id="result" style="height:150px; width:80%; overflow:hidden; overflow-y:scroll; display: none;">
+                <div class="row text-center">
 
-            </ul>
-            Destination Station: <br>
-            <input type="text" name="destination" id="destination" oninput="suggestStations('destination')"><br>
-            Date of Journey : <br>
-            <input type="date" name="date" id="date"><br>
-            <button onclick="searchTrains()">Search</button>
-        </div> -->
-
-        <!-- <div style="margin-left: 150px;">
-            <h2>Check Live Train Status</h2>
-            Enter Train number/name: <br>
-            <input type="text" name="trainno" id="trainno"><br>
-            Select date: <br>
-            <input type="date" id="date_live"><br>
-            Select Station: <br>
-            <input type="text" id="code_live"><br>
-            <button onclick="track()">Track</button>
-        </div> -->
-
-        <!-- <div style="margin-left: 150px;">
-            <h2>Check PNR status</h2>
-            Enter 10 digit PNR: <br>
-            <input type="text" name="pnr" id="pnr"><br>
-            <button onclick="pnrStatus()">Check</button>
-        </div> -->
-    <!-- </div> -->
-
-    
+                    <div class="col-xl-3 col-sm-6 mb-5">
+                        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://miro.medium.com/max/3150/1*xZTMZ8X6kFHgbobnUZxv9g.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
+                            <h5 class="mb-0">Siddharth Maheshwari</h5><span class="small text-uppercase text-muted">Trainsafar User</span>
+                            <p class="small">"Earlier I had to visit a lot of websites for searching trains. But now, with Trainsafar, I am able to get all services at one place"</p>
+                        </div>
+                    </div>
 
 
-   
-<footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
-        <div class="container">
-          <div class="row row-30">
-            <div class="col-md-4 col-xl-5">
-              <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="img/02.jpeg" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
-                <p>We are an award-winning creative and dedicated team of Full-stack developers located in Banglore.</p>
-                <!-- Rights-->
-                <p class="rights"><span>©  </span><span class="copyright-year">2020</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
-              </div>
+                    <div class="col-xl-3 col-sm-6 mb-5">
+                        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://miro.medium.com/fit/c/256/256/1*xwrqMchhZp3nPhBVp2Xj9w.jpeg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
+                            <h5 class="mb-0">Nishant Chandra</h5><span class="small text-uppercase text-muted">Trainsafar User</span>
+                            <p class="small">"Trainsafar has made most of my travel experience as the memorable ones. Thankyou Trainsafar"</p>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-sm-6 mb-5">
+                        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE9J90vwlv_5w/profile-displayphoto-shrink_200_200/0?e=1585180800&v=beta&t=7qzcNSL8F-H7PjWywiHf1Wimi5m0k8uv40jmqpUMMqA" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
+                            />
+                            <h5 class="mb-0">Shreya Chandra</h5><span class="small text-uppercase text-muted">Trainsafar User</span>
+                            <p class="small">"Trainsafar is undoubtely the best website for travel. I will recommend everyone to use Trainsafar"</p>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-sm-6 mb-5">
+                        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="data:image/jpeg;base64,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"
+                                alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" />
+                            <h5 class="mb-0">Vibhu Banka</h5><span class="small text-uppercase text-muted">Trainsafar User</span>
+                            <p class="small">"I am very proud that this website is built by one of my student. He is a passionate web-developer and problem solver"</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="col-md-4">
-              <h5>Contacts</h5>
-              <dl class="contact-list">
-                <dt>Address:</dt>
-                <dd>401- Madhavn Appt near Vapi public School, Chala, Vapi</dd>
-              </dl>
-              <dl class="contact-list">
-                <dt>email:</dt>
-                <dd><a href="mailto:#">harekrishnamahto18@gmail.com</a></dd>
-              </dl>
-              <dl class="contact-list">
-                <dt>phones:</dt>
-                <dd><a href="tel:#">7016702811</a> <span>or</span> <a href="tel:#">8968853678</a>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-md-4 col-xl-3">
-              <h5>Links</h5>
-              <ul class="nav-list">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Pricing</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
-        <div class="row no-gutters social-container">
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+
+    </div>
+
+    <div>
+        <div class="container animated fadeIn">
+            <h1 class="header-title"> Get In Touch With Us </h1>
+            <div class="row">
+
+                <hr/>
+
+                <div class="container py-5">
+                    <div class="row h-100 align-items-center py-5">
+                        <div class="col-lg-6">
+                            <h2>Find Us</h2>
+                            <div style="text-align : center;">
+                                <iframe width="100%" height="320px;" frameborder="0" style="border:0;" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJaY32Qm3KWTkRuOnKfoIVZws&key=AIzaSyAf64FepFyUGZd3WFWhZzisswVx2K37RFY" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-lg-6  ">
+
+                            <div class="container-fluid contactBody">
+                                <div class="row-fluid">
+
+
+                                    <div class="col-md-offset-12 col-md-6" id="box">
+                                        <h2>Contact Us!</h2>
+
+                                        <hr/>
+
+
+                                        <form class="form-horizontal" action=" " method="" id="contact_form">
+                                            <fieldset>
+
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                                            <input name="first_name" placeholder="Name" class="form-control" type="text" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                                            <input name="email" placeholder="E-Mail Address" class="form-control" type="text" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-12">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                                            <input name="phone" placeholder="(005)501-120101" class="form-control" type="text" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-12 inputGroupContainer">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                                            <textarea class="form-control" name="comment" placeholder="Message"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-12">
+                                                        <button type="submit" class="btn btn-warning pull-right">Send <span class="glyphicon glyphicon-send"></span></button>
+                                                    </div>
+                                                </div>
+
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+            <div class="container second-portion">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-6 col-lg-4">
+                        <div class="box">
+                            <div class="icon">
+                                <div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                <div class="info">
+                                    <h3 class="title" style="margin-top:2em">MAIL & WEBSITE</h3>
+                                    <p>
+                                        <i class="fa fa-envelope" aria-hidden="true"></i> harekrishnamahto18@gmail.com
+                                        <br/>
+                                        <br/>
+                                        <i class="fa fa-globe" aria-hidden="true"></i> my.newtonschool.co
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="space"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-lg-4">
+                        <div class="box">
+                            <div class="icon">
+                                <div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                                <div class="info">
+                                    <h3 class="title" style="margin-top:2em">CONTACT</h3>
+                                    <p>
+                                        <i class="fa fa-mobile" aria-hidden="true"></i> (+91)-7016708211
+                                        <br/>
+                                        <br/>
+                                        <i class="fa fa-mobile" aria-hidden="true"></i> (+91)-8968853678
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="space"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-lg-4">
+                        <div class="box">
+                            <div class="icon">
+                                <div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                                <div class="info">
+                                    <h3 class="title" style="margin-top:2em">CURRENT ADDRESS</h3>
+                                    <p>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i> G4/12, Malviya Nagar, Delhi
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="space"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
         </div>
-      </footer>
+    </div>
+
+
+
+
+
 
     <script src="index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 

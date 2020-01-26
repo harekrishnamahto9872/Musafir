@@ -5,7 +5,8 @@ const apikey = '9w2fwsrpru'
 function searchTrains()
 {
     var result = document.getElementById('resultArea')
-    result.innerHTML = "please wait!!! Searching........... "
+
+    
 
     var source = document.getElementById('source').value
     var destination = document.getElementById('destination').value
@@ -21,7 +22,7 @@ function searchTrains()
     xhr.addEventListener("readystatechange", function(event){
         if(this.readyState == 4)
         {
-            result.innerHTML = ""
+            document.getElementById('loader').style.display = "none"
             console.log(this.responseText)
             var responseObj = JSON.parse(this.responseText)
 
@@ -66,7 +67,7 @@ function searchTrains()
 
 function pnrStatus()
 {
-    document.getElementById('resultArea').innerHTML = "please wait!! Searching...."
+    
     console.log("pnr called")
     var data = null;
 
@@ -75,6 +76,7 @@ function pnrStatus()
 
     xhr.addEventListener("readystatechange", function (event) {
         if (this.readyState === 4) {
+            document.getElementById('loader').style.display = "none"
             console.log(this.responseText)
             var responseObj = JSON.parse(this.responseText)
             document.getElementById('resultArea').innerHTML = ""
@@ -82,7 +84,7 @@ function pnrStatus()
             li.innerHTML = responseObj.error
 
             document.getElementById('resultArea').appendChild(li)
-            alert(responseObj.error)
+           
         }
     });
 
@@ -99,13 +101,14 @@ function track()
     const date_live = document.getElementById('date_live').value
     const stn_code = document.getElementById('code_live').value
 
-    document.getElementById('resultArea').innerHTML = "Please Wait!! Searching....."
+    
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
 
     xhr.addEventListener("readystatechange", function (event) {
         if (this.readyState === 4) {
+            document.getElementById('loader').style.display = "none"
             console.log(this.responseText)
             var responseObj = JSON.parse(this.responseText)
             document.getElementById('resultArea').innerHTML = ""
