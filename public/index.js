@@ -5,7 +5,9 @@ const apikey = 's4ky20hhdo'
 function searchTrains()
 {
     var result = document.getElementById('resultArea')
-
+    document.getElementById('resultArea').innerHTML = " "
+    document.getElementById('loader').style.display = "block"
+    
     
 
     var source = document.getElementById('source').value
@@ -67,7 +69,8 @@ function searchTrains()
 
 function pnrStatus()
 {
-    
+    document.getElementById('resultArea').innerHTML = " "
+    document.getElementById('loader').style.display = "block"
     console.log("pnr called")
     var data = null;
 
@@ -101,6 +104,8 @@ function track()
     const date_live = document.getElementById('date_live').value
     const stn_code = document.getElementById('code_live').value
 
+    document.getElementById('resultArea').innerHTML = " "
+    document.getElementById('loader').style.display = "block"
     
 
     var xhr = new XMLHttpRequest();
