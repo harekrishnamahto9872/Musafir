@@ -186,13 +186,13 @@ module.exports = function(app,db){
                     res.render('logged',data={name: user.name, email : user.email})
                 }
                 else{
-                    console.log("please enter correct password")
+                    alert("please enter correct password")
                     res.render('login', data={message:"Please enter correct password"})
                 }
             }
             else
             {
-                console.log("Errr: user not found with the mentioned email id")
+                alert("Errr: user not found with the mentioned email id")
                 res.render('signup', data={message:"Email id not registered with us.!! Please sign up"})
             }
         })
